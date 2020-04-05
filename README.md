@@ -5,6 +5,7 @@
 python3 main.py
 ```
 ```
+Enter handle : mo1ein
 >>> reading ...
   -------------------------------------------------
  |                Codeforces status                |
