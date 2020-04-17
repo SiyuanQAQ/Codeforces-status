@@ -18,7 +18,15 @@ def cf_status(handle = 'tourist'):
                 wrong+=1
 
             total+=1
+        
+        return {'result': 'success', 'accept': accept, 'wrong': wrong, 'total': total}
+    
+    except:
+        return {'result': 'fail'}
 
+def print_status(status):
+    if status['result'] == 'success':
+        accept, wrong, total = status['accept'], status['wrong'], status['total']
         #print result 
         print("  " + 49 * "\033[93m-\033[00m")
         print(' \033[93m|\033[00m'+16*' '+'Codeforces status'+15*' ','\033[93m|\033[00m')
@@ -28,8 +36,9 @@ def cf_status(handle = 'tourist'):
         print("  " + 49 * "\033[93m-\033[00m")
 
     #when you have connection problem
-    except :
-        print(">>> Oops I think you R offline :| ") 
+    else :
+        print(">>> Oops I think you R offline or there is no such handle :| ") 
 
 handle = input('Enter handle : ')
-cf_status(handle)
+status = cf_status(handle)
+print_status(status)
